@@ -1,0 +1,47 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Kesehatan Daun Jagung</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistem Analisis Kesehatan Daun Jagung</h1>
+            <p>Menggunakan Analisis Warna dan Pemrosesan Gambar</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-box" id="dropZone">
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                    <div class="upload-content">
+                        <img src="{{ url_for('static', filename='images/upload-icon.png') }}" alt="Upload Icon">
+                        <p>Drag & Drop gambar atau klik untuk memilih</p>
+                    </div>
+                </div>
+                <button id="predictBtn" disabled>Analisis Daun</button>
+            </div>
+
+            <div class="result-section" style="display: none;">
+                <div class="image-preview">
+                    <img id="previewImage" src="" alt="Preview">
+                </div>
+                <div class="prediction-result">
+                    <h2>Hasil Analisis:</h2>
+                    <p>Kondisi: <span id="diseaseType"></span></p>
+                    <p>Tingkat Kepercayaan: <span id="confidence"></span></p>
+                    <p>Detail: <span id="details"></span></p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
